@@ -8,6 +8,10 @@ PAGESPEED_VERSION=1.11.33.3
 HEADERS_VERSION=0.31
 NGINX_VERSION=1.11.3
 
+## create group and user
+addgroup www-data
+useradd -c www-data -d /var/www -M -g www-data -s /usr/sbin/nologin www-data
+
 ## Get PageSpeed
 cd ${DIRECTORY}
 wget https://github.com/pagespeed/ngx_pagespeed/archive/release-${PAGESPEED_VERSION}-beta.zip
@@ -37,6 +41,8 @@ cd nginx-${NGINX_VERSION}/
      --error-log-path=/var/log/nginx/error.log \
      --lock-path=/var/lock/nginx.lock \
      --pid-path=/run/nginx.pid \
+     --user=www-data \
+     --group=www-data \
      --http-client-body-temp-path=/var/lib/nginx/body \
      --http-fastcgi-temp-path=/var/lib/nginx/fastcgi \
      --http-proxy-temp-path=/var/lib/nginx/proxy \
