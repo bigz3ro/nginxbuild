@@ -77,4 +77,4 @@ make install
 echo ""
 echo "If there are no errors, the build is completed"
 echo "Use the link below to add an init file for Nginx"
-echo "https://www.nginx.com/resources/wiki/start/topics/examples/systemd/"
+echo "https://www.nginx.com/resources/wiki/start/topics/examples/initscripts/"
